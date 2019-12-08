@@ -51,7 +51,9 @@ const Bio = () => {
         }}
       />
       <p>
-        Software Engineer. 31.
+        <span>Haegul Pyun. Software Engineer. </span>
+        <br/>
+        <span>Interested in Frontend & Node.js</span>
       </p>
     </div>
   )
