@@ -3,6 +3,8 @@ title: Pattern Matching in JavaScript
 date: 2019-09-30T00:00:00.000Z
 description: TC-39 Github에 패턴 매칭(Parttern-Matching)이 Stage 0에서 1로 한단계 등급이 상향됬었다. Stage1은 proposal 단계로 앞으로 TC-39 위원회에서 논의할 예정이며, 구체적인 데모에 대한 코드도 포함되어야 한다. 아직 Stage2(draft)와 Stage3(candidate), 그리고 stage4(finished)를 거쳐 정식으로 스펙에 추가되려면 갈 길이 멀지만 어떤 기능을 가지고 있고 또 어떻게 사용할 수 있는지 간단하게나마 미리 알아보도록 하자.
 ---
+![pattern-matching](./title.png)
+
 TC-39 Github에 **패턴 매칭(Parttern-Matching)**이 Stage 0에서 1로 한단계 등급이 상향됬었다. Stage1은 proposal 단계로 앞으로 TC-39 위원회에서 논의할 예정이며, 구체적인 데모에 대한 코드도 포함되어야 한다. 아직 Stage2(draft)와 Stage3(candidate), 그리고 stage4(finished)를 거쳐 정식으로 스펙에 추가되려면 갈 길이 멀지만 어떤 기능을 가지고 있고 또 어떻게 사용할 수 있는지 간단하게나마 미리 알아보도록 하자.
 
 패턴 매칭은 Scala, F#, Rust 등 다른 언어에도 있는 기능인데, 앞서 언급한 언어에 대해서는 잘 모르지만, 비교적 단순하므로 다른 언어를 통해 알아보도록 하자.
