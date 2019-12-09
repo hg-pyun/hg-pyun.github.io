@@ -1,7 +1,7 @@
 ---
 title: Async-await는 어떻게 구현하는가
 date: 2018-10-07T14:56:07.725Z
-description: 지난 포스트였던 Javascript Iterator에서 잠깐 언급했었던 async-await에 관해 이야기해 보도록 하자. 시작하기에 앞서 이 포스트에서는 async-await에 대한 문법을 다루지 않는다. async-wait가 어떤 배경을 가지고, 어떤 방법을 통해 구현이 되어있는지 그 근원에 대한 탐구를 할 생각이다. 따라서 iterator, promise, generator, async-wait, 그리고 Babel에 대한 사전 지식이 필요한 사람들은 아래 링크에 있는 글들을 먼저 읽어보길 바란다. 
+description: 지난 포스트였던 Javascript Iterator에서 잠깐 언급했었던 async-await에 관해 이야기해 보도록 하자. 시작하기에 앞서 이 포스트에서는 async-await에 대한 문법을 다루지 않는다. async-wait가 어떤 배경을 가지고, 어떤 방법을 통해 구현이 되어있는지 그 근원에 대한 탐구를 할 생각이다. 
 ---
 지난 포스트였던 Javascript Iterator에서 잠깐 언급했었던 async-await에 관해 이야기해 보도록 하자. 시작하기에 앞서 이 포스트에서는 async-await에 대한 문법을 다루지 않는다. async-wait가 어떤 배경을 가지고, 어떤 방법을 통해 구현이 되어있는지 그 근원에 대한 탐구를 할 생각이다. 따라서 iterator, promise, generator, async-wait, 그리고 Babel에 대한 사전 지식이 필요한 사람들은 아래 링크에 있는 글들을 먼저 읽어보길 바란다.
 - [Javascript Iterator](https://medium.com/@la.place/javascript-iterator-b16ca3c51af2)
