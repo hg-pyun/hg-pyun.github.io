@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { Icon } from '@iconify/react';
+import githubFill from '@iconify/icons-ant-design/github-fill';
+import linkedinFill from '@iconify/icons-ant-design/linkedin-fill';
 
 import { rhythm, scale } from '../utils/typography';
 
@@ -63,9 +66,23 @@ class Layout extends React.Component {
         <header>{header}</header>
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
+          <Icon
+            icon={githubFill}
+            width={40}
+            height={40}
+            style={{ cursor: 'pointer' }}
+            onClick={() => window.open('https://github.com/hg-pyun')}
+          />
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <Icon
+            icon={linkedinFill}
+            width={40}
+            height={40}
+            style={{ cursor: 'pointer' }}
+            onClick={() =>
+              window.open('https://www.linkedin.com/in/haegul-pyun-747977122/')
+            }
+          />
         </footer>
       </div>
     );
