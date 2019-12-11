@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://hg-pyun.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Dec 2019 14:09:27 GMT</lastBuildDate><item><title><![CDATA[Pattern Matching in JavaScript]]></title><description><![CDATA[TC-39 Github에 패턴 매칭(Parttern-Matching)이 Stage 0에서 1로 한단계 등급이 상향됬었다. Stage1은 proposal 단계로 앞으로 TC-3…]]></description><link>https://hg-pyun.github.io/pattern-matching-in-javascript/</link><guid isPermaLink="false">https://hg-pyun.github.io/pattern-matching-in-javascript/</guid><pubDate>Mon, 30 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://hg-pyun.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Dec 2019 14:54:32 GMT</lastBuildDate><item><title><![CDATA[Pattern Matching in JavaScript]]></title><description><![CDATA[TC-39 Github에 패턴 매칭(Parttern-Matching)이 Stage 0에서 1로 한단계 등급이 상향됬었다. Stage1은 proposal 단계로 앞으로 TC-3…]]></description><link>https://hg-pyun.github.io/pattern-matching-in-javascript/</link><guid isPermaLink="false">https://hg-pyun.github.io/pattern-matching-in-javascript/</guid><pubDate>Mon, 30 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
     &gt;
@@ -146,6 +146,417 @@
 &lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;getLength&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;x:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;y:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;z:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;}) &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// 3.74165&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;마치며&lt;/h2&gt;
 &lt;p&gt;물론, 현재는 Stage1 단계라 추후 API 명세가 크게 바뀔 가능성도 있다(Stage0에서는 없었던 when이 생겼던 것처럼). 현재 바벨에도 추가하려는 움직임이 보이고 있으니 생각보다 우리가 빠르게 접하게 될 것이라 생각한다(&lt;a href=&quot;https://github.com/babel/babel/pull/9010&quot;&gt;#9010&lt;/a&gt;), (&lt;a href=&quot;https://github.com/babel/babel/pull/9318&quot;&gt;#9318&lt;/a&gt;). 개인적으로 &lt;a href=&quot;https://dev-momo.tistory.com/entry/Javascript-Optional-Chaining&quot;&gt;Optional Chaining&lt;/a&gt;과 더불어 어서 추가됬으면 좋겠다는 생각이 든다. 참고로 패턴 매칭을 개념을 이용한 유틸 함수들은 이미 많이 만들어져 활용되고 있으므로, 시간이 된다면 직접 만들어서 활용해 보면 좋을 것 같다.&lt;/p&gt;
+&lt;style class=&quot;vscode-highlight-styles&quot;&gt;
+  :root {
+  --vscode-highlight-padding-v: 1rem;
+  --vscode-highlight-padding-h: 1.5rem;
+  --vscode-highlight-padding-top: var(--vscode-highlight-padding-v);
+  --vscode-highlight-padding-right: var(--vscode-highlight-padding-h);
+  --vscode-highlight-padding-bottom: var(--vscode-highlight-padding-v);
+  --vscode-highlight-padding-left: var(--vscode-highlight-padding-h);
+  --vscode-highlight-border-radius: 8px;
+
+  --vscode-highlight-line-highlighted-background-color: transparent;
+  --vscode-highlight-line-highlighted-border-width: 4px;
+  --vscode-highlight-line-highlighted-border-color: transparent;
+}
+
+.vscode-highlight {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 1rem;
+  padding-top: var(--vscode-highlight-padding-top);
+  padding-bottom: 1rem;
+  padding-bottom: var(--vscode-highlight-padding-bottom);
+  border-radius: 8px;
+  border-radius: var(--vscode-highlight-border-radius);
+  font-feature-settings: normal;
+}
+
+.vscode-highlight-code {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.vscode-highlight-line {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-left: var(--vscode-highlight-padding-left);
+  padding-right: 1.5rem;
+  padding-right: var(--vscode-highlight-padding-right);
+}
+
+.vscode-highlight-line-highlighted {
+  background-color: var(--vscode-highlight-line-highlighted-background-color);
+  box-shadow: inset var(--vscode-highlight-line-highlighted-border-width) 0 0 0 var(--vscode-highlight-line-highlighted-border-color);
+}
+
+  .dark-default-dark {
+background-color: #1E1E1E;
+color: #D4D4D4;
+}
+
+.dark-default-dark .mtk1 { color: #D4D4D4; }
+.dark-default-dark .mtk2 { color: #1E1E1E; }
+.dark-default-dark .mtk3 { color: #6A9955; }
+.dark-default-dark .mtk4 { color: #569CD6; }
+.dark-default-dark .mtk5 { color: #D16969; }
+.dark-default-dark .mtk6 { color: #D7BA7D; }
+.dark-default-dark .mtk7 { color: #B5CEA8; }
+.dark-default-dark .mtk8 { color: #CE9178; }
+.dark-default-dark .mtk9 { color: #646695; }
+.dark-default-dark .mtk10 { color: #4EC9B0; }
+.dark-default-dark .mtk11 { color: #DCDCAA; }
+.dark-default-dark .mtk12 { color: #9CDCFE; }
+.dark-default-dark .mtk13 { color: #000080; }
+.dark-default-dark .mtk14 { color: #F44747; }
+.dark-default-dark .mtk15 { color: #C586C0; }
+.dark-default-dark .mtk16 { color: #6796E6; }
+.dark-default-dark .mtk17 { color: #808080; }
+.dark-default-dark .mtki { font-style: italic; }
+.dark-default-dark .mtkb { font-weight: bold; }
+.dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Javascript Optional Chaining]]></title><description><![CDATA[ES2015가 나온지 꽤 오랜 시간이 지났다. function-bind, rest spread, decorator…]]></description><link>https://hg-pyun.github.io/javascript-optional-chaining/</link><guid isPermaLink="false">https://hg-pyun.github.io/javascript-optional-chaining/</guid><pubDate>Mon, 30 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/50f3d214445537e7db1a3a5cf2af5ebf/52ae2/image01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.744186046511636%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABm0lEQVQoz52OTW8SURiF53e4EZwZ7niZAjPIBJgWZmBobJtoXOnGj19joTuxHyJprKWtESqlm9JUXVQXxp/E5hzvDGi6MTEunpzz3vO+J1cbTr/Nxl9+zCZffyac/QfxXdwxuvw+04bTa3b3j/nyVY+dbp9b2312Fmz9I+3XvaTj48U1tXfjS9yPIjwqpZBrGdCtFDIZhUjBVGqIOYk3b//R3z7eS6dvodao4+B0Cq13fMZaUKNj68wVLWbtDFUhhXWHd6VBW8TolJbSJUGZNRONsaRJa8mirvarK1W+ORpT2zs8ZRCFbEZ1BsEy1zdWmS9ISttkxXO4bhW4JvIMHZcPHq4xDHy2VsPE18JlFqMmc36F/orP3cORKhx8Qtkvw3UlCo6EbWdQ8vJw3CxsaaCsm/B0A66hwxMCJdNQ7wLOvRyq1SKKhSzy6RS8Sgm770fQ+h/O+eTZC9abDYatSP22mejcK10QRPMsyaMbmdqrNxp8/PQ5355MqA0mn7Gjmjvb+9js9tFWbC5o35jbfyHO4tudgyEGkyv8AtCyW1/L1u2eAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/50f3d214445537e7db1a3a5cf2af5ebf/e44fa/image01.png&quot;
+        srcset=&quot;/static/50f3d214445537e7db1a3a5cf2af5ebf/03428/image01.png 158w,
+/static/50f3d214445537e7db1a3a5cf2af5ebf/9cdd0/image01.png 315w,
+/static/50f3d214445537e7db1a3a5cf2af5ebf/e44fa/image01.png 630w,
+/static/50f3d214445537e7db1a3a5cf2af5ebf/52ae2/image01.png 860w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;ES2015가 나온지 꽤 오랜 시간이 지났다. function-bind, rest spread, decorator 등 개발을 편하게 도와주는 문법들이 정의되면서 개발을 하는데 한층 더 수월해지는 것 같다. 오늘은 최근 개발하면서 사용하기 도입하기 시작한 꿀같은 기능. Optional Chaining에 대해서 정리해 보고자 한다.&lt;/p&gt;
+&lt;h2&gt;Optional Chaining?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Optional Chaining&lt;/strong&gt;. 말 그대로 특정 값에 대한 참조에 대해서 값이 존재하지 않을 때 선택적으로 체이닝 할 수 있는 문법이다. 이 문법은 &lt;em&gt;C#의 conditional operator, Swift의 Optional Chaining&lt;/em&gt;, 또 &lt;em&gt;CoffeeScript의 Existential operator&lt;/em&gt;와 매우 유사하다. 다른 언어들에서도 유사한 문법이 제공되는 것으로 미루어 보아, 존재하지 않는 값에 대한 예외처리는 언제나 고민의 대상이 되어 왔다는 것을 알 수 있다. 특히나 Object의 참조가 많이 이루어지는 Javascript에서는 객체의 프로퍼티가 존재하는지에 대한 체크가 필수적이다.&lt;/p&gt;
+&lt;p&gt;Javascript에서 객체의 프로퍼티를 체크하는 방법에는 여러가지가 존재하지만 보통 아래와 같은 방법을 자주 사용할 것이다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;profile:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;};&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk15&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;hasOwnProperty&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;profile&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;)){&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;laplace&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk10&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;); &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// laplace&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;obj의 프로퍼티중 profile이 존재하는지 체크하는 로직이다. 자바스크립트는 런타임에 프로퍼티를 체크하게되므로, 만약 profile이 없는 상태에서 name에 접근하려 한다면 TypeError: Cannot set property ‘name’ of undefined 라는 스크립트 에러가 발생하게 된다. 따라서 중요한 비지니스 로직에는 프로퍼티의 존재 유무를 체크하는 방어적인 로직을 필수적으로 넣는다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {};&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;laplace&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk10&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;); &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// Cannot set property &amp;#39;name&amp;#39; of undefined&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;서버에서 주는 API의 리턴 값이 오브젝트라면, 프로퍼티 값이 null/undefined인 경우를 방지하기 위해 아래와 같이 사용해본 경험도 많을 것이라 생각한다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;street&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;street&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;또 querySelector를 사용했을 때 Element가 없는 경우는 다음과 같이 많이 사용했을 것이다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;fooInput&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;myForm&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;input[name=foo]&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;fooValue&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;fooInput&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;fooInput&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;이와 같이 존재하지 않는 프로퍼티에 대한 처리를 하기 위해, 분기코드가 들어가게 되고 이는 코드를 읽는데 방해가 되어 가독성이 저하된다. 따라서 이를 개선하기 위해 등장한 문법이 바로 Optional Chaining이다. 현재 TC-39의 proposal 단계에서이며 최근 stage-2 단계까지 도달했다. 현재 @babel/plugin-proposal-optional-chaining을 추가하면 babel을 통해 바로 사용할 수 있다. 도입 배경에 대해서 알아봤으니 이제 어떻게 사용하는지 간략하게 알아보도록 하자.&lt;/p&gt;
+&lt;h2&gt;Syntax&lt;/h2&gt;
+&lt;p&gt;문법은 굉장히 직관적이다. ”?.” 을 사용하여 프로퍼티가 존재하는지 유무를 체크할 수 있다. 만약 체크하는게 함수 타입일 경우, null/undefined가 아니라면 함수를 실행시킨다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;prop&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// optional static property access&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;expr&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]     &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// optional dynamic property access&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.(...&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;) &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// optional function or method call&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;삼항 연산자를 통해 어떻게 실행하는지 알아보도록 하자.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;                          &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// a가 null/undefined라면 undefined, 아니면 a.b를 반환한다.&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; == &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;];                        &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// a가 null/undefined라면 undefined, 아니면 a[x]를 반환한다.&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; == &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;];&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;();                        &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// a가 null/undefined라면 undefined&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; == &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(); &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// a.b가 함수가 아니라면 TypeError를 던진다.&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// 위 경우가 아니라면 a.b를 실행&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.();                         &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// a가 null/undefined라면 undefined&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; == &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;();   &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// a가 null/undefined, function이 아닌 경우 TypeError를 던진다.&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;                               &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// 위 경우에 해당하지 않을 경우 a를 실행&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;물론 아래와 같이 연속해서 사용도 가능하다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; == &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; == &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;이번엔 좀더 구체적인 예제를 보도록 하자.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;};&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;; &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// 100&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;safe&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;qux&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;; &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// undefined&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;baz는 obj, bar, baz가 존재한 경우에는 baz의 값을 리턴한다. 이를 Optional Chaining 없이 구현한다고 한다면 다음과 같다. 마치 콜백지옥을 보는 듯하다(…)&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;다음은 중첩된 객체의 함수에 접근하는 경우이다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;                &lt;/span&gt;&lt;span class=&quot;mtk15&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;};&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(); &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// 100&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;safe&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;qux&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;();       &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// undefined&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;safe2&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;qux&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.(); &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// undefined&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;willThrow&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;qux&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(); &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// Error: not a function&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;앞서 설명했듯이 체이닝을 모두 체크한후 값이 존재한다면 함수를 실행시킨다. 만약 존재하지 않는 함수를 실행하려고 한다면 에러를 발생시킨다. 마찬가지로 baz가 클래스라면 instance를 리턴하게 된다. 마지막으로 함수에 직접 Optional Chaining을 사용한 경우를 살펴보도록 하자.&lt;/p&gt;
+&lt;p&gt;test가 함수 타입일 경우 함수를 실행시킨다. 하지만 존재하지 않을 경우엔 undefined가 리턴된다. 그렇다면 실제 Babel은 어떻게 Optional Chaining을 구현할까? 궁금하니 위 예제를 한번 돌려보았다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;use strict&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;_obj$foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;_obj$foo$bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;}}},&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; === &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; || &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; === &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; || &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; === (&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;_obj$foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;) || &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; === &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;_obj$foo&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;|| &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; === (&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;_obj$foo$bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;_obj$foo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;) || &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; === &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;_obj$foo$bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;_obj$foo$bar&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;baz&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;; &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// 100&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;모두 비교해보는 코드로 바꾸어준다(…) 아무튼 우리는 Optional Chaining을 통해 적은 노력으로 이러한 코드 작성 비용을 줄이고, 높은 가독성도 함께 얻을 수 있다. 사용해보면 생각보다 꽤 생산성을 높일 수 있는 좋은 문법이니 공식적으로 브라우저에서 지원 될 날을 기대해 본다.&lt;/p&gt;
+&lt;h4&gt;Reference&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tc39/proposal-optional-chaining&quot;&gt;TC-39 Proposal Optional Chaining&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://babeljs.io/docs/en/next/babel-plugin-proposal-optional-chaining.html&quot;&gt;@babel/proposal-optional-chaining&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style class=&quot;vscode-highlight-styles&quot;&gt;
+  :root {
+  --vscode-highlight-padding-v: 1rem;
+  --vscode-highlight-padding-h: 1.5rem;
+  --vscode-highlight-padding-top: var(--vscode-highlight-padding-v);
+  --vscode-highlight-padding-right: var(--vscode-highlight-padding-h);
+  --vscode-highlight-padding-bottom: var(--vscode-highlight-padding-v);
+  --vscode-highlight-padding-left: var(--vscode-highlight-padding-h);
+  --vscode-highlight-border-radius: 8px;
+
+  --vscode-highlight-line-highlighted-background-color: transparent;
+  --vscode-highlight-line-highlighted-border-width: 4px;
+  --vscode-highlight-line-highlighted-border-color: transparent;
+}
+
+.vscode-highlight {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 1rem;
+  padding-top: var(--vscode-highlight-padding-top);
+  padding-bottom: 1rem;
+  padding-bottom: var(--vscode-highlight-padding-bottom);
+  border-radius: 8px;
+  border-radius: var(--vscode-highlight-border-radius);
+  font-feature-settings: normal;
+}
+
+.vscode-highlight-code {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.vscode-highlight-line {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-left: var(--vscode-highlight-padding-left);
+  padding-right: 1.5rem;
+  padding-right: var(--vscode-highlight-padding-right);
+}
+
+.vscode-highlight-line-highlighted {
+  background-color: var(--vscode-highlight-line-highlighted-background-color);
+  box-shadow: inset var(--vscode-highlight-line-highlighted-border-width) 0 0 0 var(--vscode-highlight-line-highlighted-border-color);
+}
+
+  .dark-default-dark {
+background-color: #1E1E1E;
+color: #D4D4D4;
+}
+
+.dark-default-dark .mtk1 { color: #D4D4D4; }
+.dark-default-dark .mtk2 { color: #1E1E1E; }
+.dark-default-dark .mtk3 { color: #6A9955; }
+.dark-default-dark .mtk4 { color: #569CD6; }
+.dark-default-dark .mtk5 { color: #D16969; }
+.dark-default-dark .mtk6 { color: #D7BA7D; }
+.dark-default-dark .mtk7 { color: #B5CEA8; }
+.dark-default-dark .mtk8 { color: #CE9178; }
+.dark-default-dark .mtk9 { color: #646695; }
+.dark-default-dark .mtk10 { color: #4EC9B0; }
+.dark-default-dark .mtk11 { color: #DCDCAA; }
+.dark-default-dark .mtk12 { color: #9CDCFE; }
+.dark-default-dark .mtk13 { color: #000080; }
+.dark-default-dark .mtk14 { color: #F44747; }
+.dark-default-dark .mtk15 { color: #C586C0; }
+.dark-default-dark .mtk16 { color: #6796E6; }
+.dark-default-dark .mtk17 { color: #808080; }
+.dark-default-dark .mtki { font-style: italic; }
+.dark-default-dark .mtkb { font-weight: bold; }
+.dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Why React Hooks]]></title><description><![CDATA[최근 React v16버전으로 업데이트되면서 여러가지 개발 효율성을 높여주는 API들이 추가되고 있다. 최근 회사에서 시작한 스터디에서 이번에 React Conf 2018에서 소개된 Hooks에 대해 공부하기로하여 여기에 정리해 본다. Why…]]></description><link>https://hg-pyun.github.io/why-react-hooks/</link><guid isPermaLink="false">https://hg-pyun.github.io/why-react-hooks/</guid><pubDate>Sat, 05 Jan 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근 React v16버전으로 업데이트되면서 여러가지 개발 효율성을 높여주는 API들이 추가되고 있다. 최근 회사에서 시작한 스터디에서 이번에 React Conf 2018에서 소개된 Hooks에 대해 공부하기로하여 여기에 정리해 본다.&lt;/p&gt;
+&lt;h2&gt;Why Hooks ?&lt;/h2&gt;
+&lt;p&gt;어떤 기능에 대해 깊게 이해하고 싶다면, 그 기능이 왜 생겼는지에 대하여 알아보는 것이 가장 좋은 방법이라 생각한다. 따라서 이 글에서는 Hooks을 다루는 API보단 도입 배경에 초점을 맞추도록 하겠다. Hooks 문법을 모르는 사람은 사람은 간단히 &lt;a href=&quot;https://reactjs.org/docs/hooks-overview.html&quot;&gt;Hooks at a Glance&lt;/a&gt;를 읽고 오도록 하자.&lt;/p&gt;
+&lt;p&gt;다시 돌아와서 Facebook은 React Hooks을 왜 도입되게 되었을까? 사실 공식 문서인 &lt;a href=&quot;https://reactjs.org/docs/hooks-intro.html#motivation&quot;&gt;Intoducing Hooks Motivation&lt;/a&gt;에 그 이유가 간락하게 소개되어 있다. 약간 아쉬운 감이 있어서 좀더 찾아봤더니 Dan Abramov가 쓴 &lt;a href=&quot;https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889&quot;&gt;Making Sense of React Hooks&lt;/a&gt; 라는 아티클을 발견하게 되었다. 꽤나 자세하고 친철하게 설명하고 있으므로, 해당 아티클에서 왜 Hooks가 도입되었는지에 대해 설명하는 부분에 대해 간략하게 여기에 정리해 보도록 하겠다.&lt;/p&gt;
+&lt;p&gt;그 이전에 React Hooks에 대한 소개가 있었던 React Conf 2018 동영상을 소개한다. Dan이 직접 라이브 코딩을 통해 Hooks에 대한 핵심을 설명하므로 시간이 된다면 반드시 보는 것을 추천한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/dpw9EHDh2bM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
+&lt;p&gt;여기서 부터는 위 동영상과 아티클을 바탕으로 필자의 주관이 다소 관여되어 있으므로 감안해서 읽도록 하자. 내가 생각하는 Hooks이 도입된 이유는 크게 세가지이다. &lt;strong&gt;Huge and Complex Componets&lt;/strong&gt;, &lt;strong&gt;Duplicated Logic&lt;/strong&gt;, 그리고 &lt;strong&gt;Class&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;h2&gt;Huge and Complex Components&lt;/h2&gt;
+&lt;p&gt;부작용(Side-Effect)없이 프로그래밍 하는 좋은 방법 중 하나는 커다란 코드를 작은 단위로 쪼개서 작성하는 것이다. 작게 나눠서 해결하기 위해 우리는 주로 함수나 클래스를 사용하기도 하고, React에서는 컴포넌트라는 개념을 이용하여 문제를 잘게 쪼개기도 한다. React의 컴포넌트 활용법에 대해서는 &lt;a href=&quot;https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0&quot;&gt;Presentational and Container Components&lt;/a&gt;에서 언급한 패턴을 많이 사용하는데, 잘 모르는 사람들을 위해 간략하게 설명하도록 하겠다.&lt;/p&gt;
+&lt;p&gt;컴포넌트는 크게 2가지 종류로 나눌 수 있는데, &lt;strong&gt;Presentational 컴포넌트&lt;/strong&gt;와 &lt;strong&gt;Container 컴포넌트&lt;/strong&gt;이다. Presentational 컴포넌트, 즉 보여주는데 초점을 맞춘 이 컴포넌트는 스타일 정보만을 가지며 화면을 그리는데만 집중한다. 이 컴포넌트는 보여주는데 집중하기 때문에 복잡한 비지니스 로직을 가지지 않으므로 state를 가질 필요가 없다. 따라서 함수형 컴포넌트(Functional Component)로 많이 구현을 한다. 반면 Container 컴포넌트는 비지니스 로직을 가지고 있으며, Presentational Component들을 가지고 화면을 그리는 최소한의 스타일 정보만 가지고 있다. 이렇게 컴포넌트의 역할을 분리해 각각 고유한 책임을 부여함으로서 재사용성을 높이고, 디버깅을 쉽게하는데 그 목적이 있다.&lt;/p&gt;
+&lt;p&gt;여기서 생각해 보자. Presentational 컴포넌트는 외부로부터 필요한 props를 주입받아 그리기 때문에 재사용 하기가 쉽다. 보통 재사용을 많이하는 List Item이나 Button 등을 생각하면 이해가 쉬울 것이다. 그러나 Container 컴포넌트는 state나 비지니스 로직을 가지고 있기 때문에 재사용 하기가 쉽지 않다. state를 재사용하는 방법이 아주 없는 것은 아니다. React가 성숙해지면서 Higher-Order Component나 Render props 같은 패턴들이 나오게 되었고, 이를 이용하면 간편하게 state를 재활용 할 수 있다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;asyncFunction&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, () &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;asyncFunction&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, () &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;asyncFunction&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, () &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;asyncFunction&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, () &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;asyncFunction&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, () &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;asyncFunction&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, () &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// Do Someting&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          });&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        });&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      });&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    });&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  });&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;});&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;그렇다면 state의 재사용성에 대한 문제는 해결된 것인가? 이해를 돕기 위해 우리가 자주 사용하는 Callback을 예로 들어보자. 자바스크립트는 싱글 스레드이기 때문에 이벤트 루프를 이용한 Callback 패턴을 굉장히 자주 사용한다. Callback은 한두번 사용하면 문제가 되지 않지만, 비동기 작업을 하다보면 Callback이 꼬리를 무는 상황을 마주하게 된다. 바로 콜백 지옥(Callback Hell)이다.&lt;/p&gt;
+&lt;p&gt;마찬가지로 컴포넌트나 state를 재활용하기 위해 HOC를 많이 사용하게 된다면 아래와 Wrapper Hell을 마주할 수도 있다(…)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e3567d054665617839b8d91f88a84111/0cd5c/image01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.85365853658537%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABy0lEQVQoz3WTUW/SUBiG+RvL3Jg6evBWLjQaA4noFubFMjVR+Yn+Am92Z3REM2KBlkFLGYMJFBgbSLvNPZ62lDHZTvLm9Gv6PXnf851GokIQFQrXu7JYxwWr03dquUCv26FerWEPOpyMbIbjPiNnyNg9JeI1rHoN8XAXC3UI9FSsFHEvHA7yJeqmjmnp/G6btO0mrXZDAr3G0M20eebollrVVbzVajYxixJ6aHF8fEjHbjA463nAxea1R3FftwMLPnB8PsbSTUxVw9Q1LKsinRpe5KBhRZFOpe7F1ll6cN+X9+xpBp6eobdcHAbDPuWfBQzp1DINakaJyJr8cEkRpBOC95kXbGezvMt+kPpI+s0Wb7OfeLmVYXn9YeBwCpxc/uGCc1qNI6q/ZHRD88/Tj7wci5F48pjkqxTJjQ0yO9ukJeRpKklq8zWJ589mTueBlxJ5cjrAUMuY1R/k6rkwssKKELPhhFHDyYaajxw6HE3OONgvy6nnUbW962sTTFu5MaD5+n+g83eCe+X4Lu1ul8p+iVpJDRzO37/oHVp0GADdK9cfkKXX0L9rgcM7FRc3/xSZ4vNujnxzxDejy57Zk7LJWX2+6i2+7Kr8A5/oBniSgmwuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;wrapper hell&quot;
+        title=&quot;wrapper hell&quot;
+        src=&quot;/static/e3567d054665617839b8d91f88a84111/e44fa/image01.png&quot;
+        srcset=&quot;/static/e3567d054665617839b8d91f88a84111/03428/image01.png 158w,
+/static/e3567d054665617839b8d91f88a84111/9cdd0/image01.png 315w,
+/static/e3567d054665617839b8d91f88a84111/e44fa/image01.png 630w,
+/static/e3567d054665617839b8d91f88a84111/0cd5c/image01.png 820w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;React Conf 2018 동영상에서 소개된 Wrapper Hell&lt;/p&gt;
+&lt;p&gt;이렇게 만들어진 거대한 컴포넌트(Huge Component)는 복잡성(Complex)을 증가시켜 디버깅을 어렵게 한다. React Hooks는 이러한 패턴들에게 칼을 들이댄다. useState라는 Hook을 사용하면 state를 재사용 할 수 있게 해줄 뿐만 아니라, 비교적 덜 무거운 함수형 컴포넌트에도 state를 사용할 수 있다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;Counter&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;initialCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;}) {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;] = &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;initialCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk15&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; (&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      Count: &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;Reset&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;prevCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;prevCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; + &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;prevCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;prevCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; - &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  );&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;그렇다면 HOC나 Render prop 없이 이런 문제점을 해결할 수 있는 다른 방법은 없었을까? 결론부터 말하자면 이전에도 존재 했었다. 바로 Mixin이다. 과거에도 React에는 Mixin이 있었지만 몇가지 해로운(Harmful)점이 있었기 때문에 제거 되었다. 이에 관해서는 &lt;a href=&quot;https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html#why-mixins-are-broken&quot;&gt;Mixins Considered Harmful&lt;/a&gt;에서 자세히 다루고 있으니 꼭 읽어보도록 하자. 결론적으로 페이스북 팀에서는 Mixin을 다시 도입하기 보다는 새로운 API를 만들기로 결정했고, 그렇게 탄생한게 바로 Hooks다.&lt;/p&gt;
+&lt;p&gt;아래 이미지는 Hooks을 사용하기 전과 후를 비교한 &lt;a href=&quot;https://twitter.com/threepointone/status/1056594421079261185&quot;&gt;트위터&lt;/a&gt;이다. 왼쪽과 비교해 오른쪽이 재사용하기 쉽게 모듈화 되었고, 가독성도 훨씬 좋아진 것을 알 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/449e4b00dd5de837eb1f04d4e9ac05e1/0cd5c/image02.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 97.6829268292683%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAADXElEQVQ4y4VUW4/bVBD2X+Qv8IaAB56RgMfygIRUqQ9LJWBXrSpBH1qkilbLUtTLoiaxEztxHDt2LuvsxknWseNbLo4/Zo5Jmq6gtTQ+t5lvZr4zZ6SiKNBUNPjTOeI4RhgE2Gw24I/P/k+2JNkmx2K5RrrOkW8LNoAURRFuf/EZlOev0NDbULUWvMkMH/o2ZB+vcpjXMRY0rghwu91CyvMcbU1FOPeF4nK5RJwkYsyyTERbzst1mqb7s3S5QhAlCKOYskvAWFJCxl3HQce0wNF2Oh1ozSb0dhtKvY6LCxc6RV6t1VCvN2DQOY+s0+120Wg0YJqm0GcsiT2qqiqAWMG0LPT6fciKgpauw6I1g7CBZXXhuiOxx2tV0yDLCiaTyZ4KwSEf9AcD4XVAIwOoqibmDCordXJoCj12OBwOy6gocgb2fZ+CscuUmQv23DYMocig/f5AAHTIqFKpotfrCQPD6KAmyyJ9zsh1XViUFcuuMiQmmA1VAmIw23ZIbLRauvDepD3H6VEGQ9QoUubb4OgoAI6+T/Sw3WKxKAGZSLkmo2fZUOuaAOfLYOI5JVZWtSY6BN5raRh2DFxYJuy2DkWRUalWRaS7upV48tf5a5ycPUGM7N1aEyWzwpqymFAB/+qFeDQO8Psswks/oforsOTSIu7eAXz29zk+/uZT3LrzFU5++gH3ju/j7PQPqrlkDz7exHgwOsWf05eoBDJafgXZyt6fMxj9S8AXr57j8y8/wbd3b+Ho4V18d3wb957+AmtwIZT4VSF/g7n7EaLx10j9IwTe95hNTwgoOwBECShrdfx8+hin8gu4oEsKp7CzAEmpKRTz3MM87GKSTLDOiYYt3WqRkzt+w2/fvQCs6nUcPfkRv715jDDuYui2cR049OC3/3ovx/HVBLJtYODPYQYhxvQcD5vIPsImVfox3fLDRYrLTbFjRchOkcfZzMO172JFl7UlJ2vhsCg1DwGd0QgNo4pwM8D1gt+kIwyK4q0id5Ld/PA73NunfDVycV9+gDPjKbxLHUkavtfoUG7uSbvNoe/gtX6OyzgirjzIngeXOBKKN4xu8nboUNp13zTKqGtM4VKz8AhMvbyCQ0W7Oija96W8j5A7xIIaZELG3FhjmkdxipTkv1L+EOA/EwTXhjQHeUoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;twitter&quot;
+        title=&quot;twitter&quot;
+        src=&quot;/static/449e4b00dd5de837eb1f04d4e9ac05e1/e44fa/image02.png&quot;
+        srcset=&quot;/static/449e4b00dd5de837eb1f04d4e9ac05e1/03428/image02.png 158w,
+/static/449e4b00dd5de837eb1f04d4e9ac05e1/9cdd0/image02.png 315w,
+/static/449e4b00dd5de837eb1f04d4e9ac05e1/e44fa/image02.png 630w,
+/static/449e4b00dd5de837eb1f04d4e9ac05e1/0cd5c/image02.png 820w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Duplicated Logic&lt;/h2&gt;
+&lt;p&gt;Hooks이 도입된 두번째 이유, 그건 바로 &lt;strong&gt;중복 로직&lt;/strong&gt; 때문이다. 아래 코드를 보도록 하자. 컴포넌트를 개발하다보면 라이프 사이클에 중복된 로직을 사용하는 경우가 상당히 빈번하다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;js&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;extends&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;) {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;0&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  };&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;componentDidMount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#96;You clicked &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt; times&amp;#96;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;componentDidUpdate&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#96;You clicked &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt; times&amp;#96;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk15&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; (&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;You clicked &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;{this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; times&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;setState&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;({ &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; + &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; })&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        Click me&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    );&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;아래 코드는 componentDidMount와 DidUpdate에 중복된 코드를 hooks의 &lt;strong&gt;useEffect&lt;/strong&gt;를 사용해서 통합하는 예제이다. useEffect 함수는 componentDidMount, componentDidUpdate, 그리고 componentWillUnmount를 합친 함수라 생각하면 쉽다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk15&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; { &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; } &lt;/span&gt;&lt;span class=&quot;mtk15&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;react&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;] = &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(() &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#96;You clicked &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt; times&amp;#96;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  });&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk15&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; (&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;You&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;clicked&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;} &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() \&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; + &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      Click me&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  );&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;간단히 Real World에 바로 적용할 수 있는 부분은 없을까? 데이터가 갱신 됬을 때, 초기화를 해줘야 한다던가 Loading UI를 보여준는 상황 등이 있을 수 있겠다. 아무튼 페이스북 팀은 이러한 중복 로직을 줄이고, 더 적은 부분으로 쪼갤 수 있도록 reducer hook을 추가로 제공하고 있는데, 이 부분에 대해서는 추후 다시 다뤄보도록 하겠다.&lt;/p&gt;
+&lt;h2&gt;Class&lt;/h2&gt;
+&lt;p&gt;마지막으로 &lt;strong&gt;Class&lt;/strong&gt;이다. Class가 왜 문제인지 의문이 드는 사람이 많을 것이다. 정확히는 Class보단 Class안에서 사용하는 this가 문제이다. Javascript에서 this의 동작방식은 다른 언어와 다르기 때문에, 익숙하지 않은 개발자들에겐 어려움이 되기도 한다. 또 컴포넌트 안에서 사용하는 대부분의 함수들은 this를 바인딩 해야 작동하는데 이 부분이 실수의 여지도 많을 뿐더러, 바인딩 작업 때문에 코드가 장황해진다(React Conf 2018에서 Dan도 라이브 코딩중에 이부분을 실수해서 웃음을 자아내기도 했다). 물론 &lt;a href=&quot;https://babeljs.io/docs/en/babel-plugin-proposal-class-properties&quot;&gt;@babel/plugin-proposal-class-properties&lt;/a&gt;를 사용해서 코드량을 줄일 수는 있지만 React 자체로도 해결할 수 있는 방법을 꾸준히 고민해 왔던 것으로 보인다. 자바스크립트의 함수형 프로그래밍을 다루는 여러 아티클에서 this의 부작용(Side-Effect)을 많이 다루는데, 다른 라이브러리보다 FP 철학이 잘 녹아있는 react도 같은 고민을 하지 않았을까 생각해 본다. 또 리엑트를 컴파일하는데 있어서 Class를 쓰지 않는게 좀 더 최적화에 자유롭다고 한다. 실제로 Hooks API를 보면 this가 거의 쓰이지 않는 것을 볼 수 있다.&lt;/p&gt;
+&lt;h1&gt;마치며&lt;/h1&gt;
+&lt;p&gt;React Hooks은 아직 16.7.0-alpha 버전에 도입된 미완성 API이다. React Conf에서 발표한 이유로 꾸준히 피드백을 받고 있고, 조만간 Release버전에 포함되지 않을까 싶다. 또 &lt;a href=&quot;https://github.com/yyx990803/vue-hooks&quot;&gt;Vue&lt;/a&gt;나 Web Components, 다른 Pure Javascript들에서도 Hooks에 영감을 받아 실험적인 API를 만들고 있는 것을 볼 수 있는데, 이를 바탕으로 Hooks이 정식으로 도입됬을 때, React의 개발 방법론이 한번 더 발전하지 않을까 생각해 본다.마지막으로 React Hooks의 가장 기대되는 부분인 Custom Hooks에 대해서 나중에 한번 정리해 보아야 겠다.&lt;/p&gt;
 &lt;style class=&quot;vscode-highlight-styles&quot;&gt;
   :root {
   --vscode-highlight-padding-v: 1rem;
