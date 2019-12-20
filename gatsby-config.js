@@ -6,6 +6,8 @@ module.exports = {
     author: `Haegul Pyun`,
     description: `The best moment has not coming yet.`,
     siteUrl: `https://hg-pyun.github.io`,
+    ogImage:
+      'https://raw.githubusercontent.com/hg-pyun/hg-pyun.github.io/develop/content/assets/profile.jpg',
   },
   plugins: [
     {
