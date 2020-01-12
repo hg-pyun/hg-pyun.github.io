@@ -72,7 +72,7 @@ import {range} from 'iterize';
 
 ## Declaration Pattern
 
-이터레이터는 **Iterable Protocol**과 **Iterator Protocol**을 구현하는 것이 핵심이다. Iterable Protocl은 쉽게 말해 \[Symbol.iterator\] 속성을 구현하는 것을 의미하고, Iterator Protocol은 value들의 시퀀스를 만드는 표준 방법을 정의하는것(next 함수)을 의미한다. 실용적으로 사용할 수 있는 정의 패턴은 크게 두가지이다. 먼저 위에서 한번 사용한 객체를 이용한 방법이다.
+이터레이터는 **Iterable Protocol**과 **Iterator Protocol**을 구현하는 것이 핵심이다. Iterable Protocol은 쉽게 말해 \[Symbol.iterator\] 속성을 구현하는 것을 의미하고, Iterator Protocol은 value들의 시퀀스를 만드는 표준 방법을 정의하는것(next 함수)을 의미한다. 실용적으로 사용할 수 있는 정의 패턴은 크게 두가지이다. 먼저 위에서 한번 사용한 객체를 이용한 방법이다.
 ```js
 let arr = {
   [Symbol.iterator]() { // for-of나 spread는 컬렉션에 있는 이 메소드 호출로 시작된다.
