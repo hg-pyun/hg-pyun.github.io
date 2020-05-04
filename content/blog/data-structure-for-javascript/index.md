@@ -56,9 +56,9 @@ function Node(val) {
   this.next = null;
 }
 
-let head = Node(0);
-let node1 = Node(1);
-let node2 = Node(2);
+let head = new Node(0);
+let node1 = new Node(1);
+let node2 = new Node(2);
 
 head.next = node1;
 node1.next = node2;
@@ -71,9 +71,9 @@ function Node(val) {
   this.prev = null;
 }
 
-let head = Node(0);
-let node1 = Node(1);
-let node2 = Node(2);
+let head = new Node(0);
+let node1 = new Node(1);
+let node2 = new Node(2);
 
 head.next = node1;
 node1.next = node2;
@@ -104,9 +104,9 @@ function Node(val) {
   this.right = null;
 }
 
-let root = Node(5);
-let left = Node(3);
-let right = Node(8);
+let root = new Node(5);
+let left = new Node(3);
+let right = new Node(8);
 root.left = left;
 root.right = right;
 ``` 
@@ -121,7 +121,7 @@ function traversal(node) {
   traversal(node.right);
 }
 ```
-트리의 순회 방법에는 루트 노드의 방문 순서에 따라 크게 세 가지로 나눌 수 있는데, Preorder, inorder, postorder가 있다. 
+트리의 순회 방법에는 루트 노드의 방문 순서에 따라 크게 세 가지로 나눌 수 있는데, preorder, inorder, postorder가 있다. 
 핵심이 루트 노드 방문 순서이므로, 어느 시점에서 접근하냐에 따라 트리 순회방법을 표현할 수 있다. 참고로 이진 탐색 트리에서 inorder는 오름차순으로 정렬된다.
 ```js
 function traversal(node) {
