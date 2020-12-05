@@ -5,7 +5,7 @@ module.exports = {
     title: `Dev Log`,
     author: `Haegul Pyun`,
     description: `The best moment has not coming yet.`,
-    siteUrl: `https://hg-pyun.github.io`,
+    siteUrl: `https://reactiver.dev`,
     ogImage:
       'https://raw.githubusercontent.com/hg-pyun/hg-pyun.github.io/develop/content/assets/profile.jpg',
   },
@@ -90,6 +90,7 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-cname`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
