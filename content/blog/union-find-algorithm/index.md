@@ -136,7 +136,7 @@ function find(x) {
   }
 }
 ```
-이밖에도 트리의 깊이가 깊어지지 않도록, 높이가 더 낮을 트리를 높이가 더 높은 트리 밑에 넣는 Union-By-Rank라는 최적화 기법도 있다.
+이밖에도 트리의 깊이가 깊어지지 않도록, 높이가 낮은 트리를 높이가 더 높은 트리 밑에 넣는 Union-By-Rank라는 최적화 기법도 있다.
 
 이제 Union-Find 알고리즘에 대해 알아보았으니, 관련된 문제를 풀어가며 익혀 보도록 하자. 위 내용을 충분히 이해했다면 해결하는게 어렵지 않을 것이다.
 - [LeetCode 547. Friend Circles](https://leetcode.com/problems/friend-circles/)
