@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://hg-pyun.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Dec 2020 11:05:05 GMT</lastBuildDate><item><title><![CDATA[Union-Find Algorithm]]></title><description><![CDATA[…]]></description><link>https://hg-pyun.github.io/union-find-algorithm/</link><guid isPermaLink="false">https://hg-pyun.github.io/union-find-algorithm/</guid><pubDate>Sat, 05 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;올해는 코로나로 인해 집콕을 장기간 하게 되면서, 알고리즘 문제를 푸는 건전한(?) 취미를 가지게 되었다. 그런데 알고리즘 문제를 풀고나서 정리를 하지 않다보니, 뭔가
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://reactiver.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Dec 2020 12:00:26 GMT</lastBuildDate><item><title><![CDATA[Union-Find Algorithm]]></title><description><![CDATA[…]]></description><link>https://reactiver.dev/union-find-algorithm/</link><guid isPermaLink="false">https://reactiver.dev/union-find-algorithm/</guid><pubDate>Sat, 05 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;올해는 코로나로 인해 집콕을 장기간 하게 되면서, 알고리즘 문제를 푸는 건전한(?) 취미를 가지게 되었다. 그런데 알고리즘 문제를 풀고나서 정리를 하지 않다보니, 뭔가
 남는게 없는 느낌이 강하게 들었다. 학생때도 공부하고, 회사다니면서 다시 보았던, 하지만 문제 풀 때마다 새롭게 느껴졌던…몇가지 알아두면 유용한 알고리즘을 정리해 보고자
 한다. 그 첫번째로 소개할 알고리즘은 Union-Find 이다. &lt;/p&gt;
 &lt;p&gt;그전에 먼저 이해를 돕기위해 Disjoint Set에 대해 알아보도록 하자. Disjoint Set이란 서로 중복되지 않는 부분 집합들로
@@ -10,7 +10,7 @@
 &lt;p&gt;A랑 B는 친구이고, B랑 C는 친구이다. 그렇다면 A랑 C는 간접 친구라 할 수 있는데, 이렇게 친구끼리 연결되어 있으면 하나의 그룹으로 묶을 수 있다고 정의하자.
 그렇다면 N명의 사람이 존재할 때, 각각에 대하여 친구 정보가 주어진다면 총 몇개의 그룹으로 나눌 수 있을까?&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;이제 이 자료구조에 대해서 막연하게 어떤 느낌인지는 이해가 될 것이다. 앞서 말했듯이 Union-Find는 집합을 이용하는 알고리즘이다. 그렇다면 어떻게 집합을 표현하는지가 궁금할 텐데,
+&lt;p&gt;이제 막연하게 어떤 느낌인지는 이해가 될 것이다. 앞서 말했듯이 Union-Find는 집합을 이용하는 알고리즘이다. 그렇다면 어떻게 집합을 표현하는지가 궁금할 텐데,
 이제부터는 이해를 돕기 위해 예제를 보면서 찬찬히 들여다 보도록 하자.&lt;/p&gt;
 &lt;p&gt;4개의 노드가 존재하고, 각 노드의 Index를 [0, 1, 2, 3]이라 하자. 이를 표로 나타내면 다음과 같다.&lt;/p&gt;
 &lt;table&gt;
@@ -320,7 +320,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Data Structure For JavaScript]]></title><description><![CDATA[재택근무…]]></description><link>https://hg-pyun.github.io/data-structure-for-javascript/</link><guid isPermaLink="false">https://hg-pyun.github.io/data-structure-for-javascript/</guid><pubDate>Sun, 03 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;재택근무 2달째, 코로나와 함께 일상이 변화하면서 일하는 패턴도 많이 변화했다.
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Data Structure For JavaScript]]></title><description><![CDATA[재택근무…]]></description><link>https://reactiver.dev/data-structure-for-javascript/</link><guid isPermaLink="false">https://reactiver.dev/data-structure-for-javascript/</guid><pubDate>Sun, 03 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;재택근무 2달째, 코로나와 함께 일상이 변화하면서 일하는 패턴도 많이 변화했다.
 일단 출퇴근 시간이 획기적으로 줄어들면서, 퇴근 전/후 개인적으로 가질 수 있는 시간이 굉장히 많아 졌으므로 새로운 무언가를 해보기로 했다.
 일단 아침 잠이 많아 일어나자 마자 하는것은 불가능했므로, 저녁에 한시간 정도 투자할 수 있는 것을 고민 했고, 평소에 조금씩 공부 했지만 잘하지 못했던
 알고리즘을 공부해 보기로 했다.&lt;/p&gt;
@@ -539,7 +539,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Spread Syntax and Rest Parameter]]></title><description><![CDATA[전개 구문(Spread Syntax)와 Rest Parameter를 딱히 구분해서 공부하진 않았는데, 확실하게 기억해 두지 않으니 사용할때마다 헷갈린다. 이번 기회에 확실하게 정리해 두도록 하자. Spread Syntax…]]></description><link>https://hg-pyun.github.io/spread-syntax-and-rest-parameter/</link><guid isPermaLink="false">https://hg-pyun.github.io/spread-syntax-and-rest-parameter/</guid><pubDate>Sun, 03 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Spread Syntax and Rest Parameter]]></title><description><![CDATA[전개 구문(Spread Syntax)와 Rest Parameter를 딱히 구분해서 공부하진 않았는데, 확실하게 기억해 두지 않으니 사용할때마다 헷갈린다. 이번 기회에 확실하게 정리해 두도록 하자. Spread Syntax…]]></description><link>https://reactiver.dev/spread-syntax-and-rest-parameter/</link><guid isPermaLink="false">https://reactiver.dev/spread-syntax-and-rest-parameter/</guid><pubDate>Sun, 03 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
     &gt;
@@ -676,7 +676,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Pattern Matching in JavaScript]]></title><description><![CDATA[TC-39 Github에 패턴 매칭(Parttern-Matching)이 Stage 0에서 1로 한단계 등급이 상향됬었다. Stage1은 proposal 단계로 앞으로 TC-3…]]></description><link>https://hg-pyun.github.io/pattern-matching-in-javascript/</link><guid isPermaLink="false">https://hg-pyun.github.io/pattern-matching-in-javascript/</guid><pubDate>Mon, 30 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Pattern Matching in JavaScript]]></title><description><![CDATA[TC-39 Github에 패턴 매칭(Parttern-Matching)이 Stage 0에서 1로 한단계 등급이 상향됬었다. Stage1은 proposal 단계로 앞으로 TC-3…]]></description><link>https://reactiver.dev/pattern-matching-in-javascript/</link><guid isPermaLink="false">https://reactiver.dev/pattern-matching-in-javascript/</guid><pubDate>Mon, 30 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
     &gt;
@@ -896,7 +896,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Javascript Optional Chaining]]></title><description><![CDATA[ES2015가 나온지 꽤 오랜 시간이 지났다. function-bind, rest spread, decorator…]]></description><link>https://hg-pyun.github.io/javascript-optional-chaining/</link><guid isPermaLink="false">https://hg-pyun.github.io/javascript-optional-chaining/</guid><pubDate>Mon, 30 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Javascript Optional Chaining]]></title><description><![CDATA[ES2015가 나온지 꽤 오랜 시간이 지났다. function-bind, rest spread, decorator…]]></description><link>https://reactiver.dev/javascript-optional-chaining/</link><guid isPermaLink="false">https://reactiver.dev/javascript-optional-chaining/</guid><pubDate>Mon, 30 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
     &gt;
@@ -1087,7 +1087,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Beginning Javascript Iterator and Generator]]></title><description><![CDATA[이전에 Javascaript의 Iterator…]]></description><link>https://hg-pyun.github.io/beginning-javascript-iterator-and-generator/</link><guid isPermaLink="false">https://hg-pyun.github.io/beginning-javascript-iterator-and-generator/</guid><pubDate>Sat, 12 Jan 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이전에 Javascaript의 &lt;strong&gt;Iterator&lt;/strong&gt;에 대해서 몇가지 다뤄보았었는데, 도입된지 얼마 안된 스펙이다보니 자유 자재로 다루기가 아직 버겁다는 생각이 많이 들었다. 또한 최근 이터레이터와 제네레이터를 이용해 멋지게 구현한 코드들을 접하고 나서, 연습을 많이 해야겠다는 생각이들어 여기에 정리해 보고자 한다. 아래 함께보면 좋은 글들을 같이 링크하므로 관심있는 사람은 먼저 읽어보는 것도 좋겠다.&lt;/p&gt;
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Beginning Javascript Iterator and Generator]]></title><description><![CDATA[이전에 Javascaript의 Iterator…]]></description><link>https://reactiver.dev/beginning-javascript-iterator-and-generator/</link><guid isPermaLink="false">https://reactiver.dev/beginning-javascript-iterator-and-generator/</guid><pubDate>Sat, 12 Jan 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이전에 Javascaript의 &lt;strong&gt;Iterator&lt;/strong&gt;에 대해서 몇가지 다뤄보았었는데, 도입된지 얼마 안된 스펙이다보니 자유 자재로 다루기가 아직 버겁다는 생각이 많이 들었다. 또한 최근 이터레이터와 제네레이터를 이용해 멋지게 구현한 코드들을 접하고 나서, 연습을 많이 해야겠다는 생각이들어 여기에 정리해 보고자 한다. 아래 함께보면 좋은 글들을 같이 링크하므로 관심있는 사람은 먼저 읽어보는 것도 좋겠다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://dev-momo.tistory.com/entry/Javascript-Iterator&quot;&gt;Javascript Iterator&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://hacks.mozilla.or.kr/2015/09/es6-in-depth-symbols/&quot;&gt;ES6의 심볼, 이터레이터, 제네레이터&lt;/a&gt;&lt;/li&gt;
@@ -1341,7 +1341,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Why React Hooks]]></title><description><![CDATA[최근 React v16버전으로 업데이트되면서 여러가지 개발 효율성을 높여주는 API들이 추가되고 있다. 최근 회사에서 시작한 스터디에서 이번에 React Conf 2018에서 소개된 Hooks에 대해 공부하기로하여 여기에 정리해 본다. Why…]]></description><link>https://hg-pyun.github.io/why-react-hooks/</link><guid isPermaLink="false">https://hg-pyun.github.io/why-react-hooks/</guid><pubDate>Sat, 05 Jan 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근 React v16버전으로 업데이트되면서 여러가지 개발 효율성을 높여주는 API들이 추가되고 있다. 최근 회사에서 시작한 스터디에서 이번에 React Conf 2018에서 소개된 Hooks에 대해 공부하기로하여 여기에 정리해 본다.&lt;/p&gt;
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Why React Hooks]]></title><description><![CDATA[최근 React v16버전으로 업데이트되면서 여러가지 개발 효율성을 높여주는 API들이 추가되고 있다. 최근 회사에서 시작한 스터디에서 이번에 React Conf 2018에서 소개된 Hooks에 대해 공부하기로하여 여기에 정리해 본다. Why…]]></description><link>https://reactiver.dev/why-react-hooks/</link><guid isPermaLink="false">https://reactiver.dev/why-react-hooks/</guid><pubDate>Sat, 05 Jan 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근 React v16버전으로 업데이트되면서 여러가지 개발 효율성을 높여주는 API들이 추가되고 있다. 최근 회사에서 시작한 스터디에서 이번에 React Conf 2018에서 소개된 Hooks에 대해 공부하기로하여 여기에 정리해 본다.&lt;/p&gt;
 &lt;h2&gt;Why Hooks ?&lt;/h2&gt;
 &lt;p&gt;어떤 기능에 대해 깊게 이해하고 싶다면, 그 기능이 왜 생겼는지에 대하여 알아보는 것이 가장 좋은 방법이라 생각한다. 따라서 이 글에서는 Hooks을 다루는 API보단 도입 배경에 초점을 맞추도록 하겠다. Hooks 문법을 모르는 사람은 사람은 간단히 &lt;a href=&quot;https://reactjs.org/docs/hooks-overview.html&quot;&gt;Hooks at a Glance&lt;/a&gt;를 읽고 오도록 하자.&lt;/p&gt;
 &lt;p&gt;다시 돌아와서 Facebook은 React Hooks을 왜 도입되게 되었을까? 사실 공식 문서인 &lt;a href=&quot;https://reactjs.org/docs/hooks-intro.html#motivation&quot;&gt;Intoducing Hooks Motivation&lt;/a&gt;에 그 이유가 간락하게 소개되어 있다. 약간 아쉬운 감이 있어서 좀더 찾아봤더니 Dan Abramov가 쓴 &lt;a href=&quot;https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889&quot;&gt;Making Sense of React Hooks&lt;/a&gt; 라는 아티클을 발견하게 되었다. 꽤나 자세하고 친철하게 설명하고 있으므로, 해당 아티클에서 왜 Hooks가 도입되었는지에 대해 설명하는 부분에 대해 간략하게 여기에 정리해 보도록 하겠다.&lt;/p&gt;
@@ -1561,7 +1561,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Higher-Order Function 이란 무엇인가]]></title><description><![CDATA[Higher-Order Function. 한국어로 고차함수라 부르는 이 개념은 함수형 프로그래밍을 을 할 때 많이 사용 한다. Higher-Order Function(이하 HOF…]]></description><link>https://hg-pyun.github.io/what-is-higher-order-function/</link><guid isPermaLink="false">https://hg-pyun.github.io/what-is-higher-order-function/</guid><pubDate>Sun, 28 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Higher-Order Function. 한국어로 고차함수라 부르는 이 개념은 함수형 프로그래밍을 을 할 때 많이 사용 한다. Higher-Order Function(이하 HOF)를 사용하면 보다 유연하고 반복을 줄일 수 있는 코드를 작성할 수 있다. 이번 기회에 간단한 개념 정리와 어떻게 써먹을 수 있을 지 정리해 보도록 하자.&lt;/p&gt;
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Higher-Order Function 이란 무엇인가]]></title><description><![CDATA[Higher-Order Function. 한국어로 고차함수라 부르는 이 개념은 함수형 프로그래밍을 을 할 때 많이 사용 한다. Higher-Order Function(이하 HOF…]]></description><link>https://reactiver.dev/what-is-higher-order-function/</link><guid isPermaLink="false">https://reactiver.dev/what-is-higher-order-function/</guid><pubDate>Sun, 28 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Higher-Order Function. 한국어로 고차함수라 부르는 이 개념은 함수형 프로그래밍을 을 할 때 많이 사용 한다. Higher-Order Function(이하 HOF)를 사용하면 보다 유연하고 반복을 줄일 수 있는 코드를 작성할 수 있다. 이번 기회에 간단한 개념 정리와 어떻게 써먹을 수 있을 지 정리해 보도록 하자.&lt;/p&gt;
 &lt;h2&gt;HOF??&lt;/h2&gt;
 &lt;p&gt;컴퓨터 과학(Computer Science)에서 적어도 아래 중 하나 이상을 만족하면 HOF라 할 수 있다.&lt;/p&gt;
 &lt;ul&gt;
@@ -1801,7 +1801,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Async-await는 어떻게 구현하는가]]></title><description><![CDATA[지난 포스트였던 Javascript Iterator에서 잠깐 언급했었던 async-await에 관해 이야기해 보도록 하자. 시작하기에 앞서 이 포스트에서는 async-await에 대한 문법을 다루지 않는다. async-wait…]]></description><link>https://hg-pyun.github.io/how-to-implement-async-await/</link><guid isPermaLink="false">https://hg-pyun.github.io/how-to-implement-async-await/</guid><pubDate>Sun, 07 Oct 2018 14:56:07 GMT</pubDate><content:encoded>&lt;p&gt;지난 포스트였던 Javascript Iterator에서 잠깐 언급했었던 async-await에 관해 이야기해 보도록 하자. 시작하기에 앞서 이 포스트에서는 async-await에 대한 문법을 다루지 않는다. async-wait가 어떤 배경을 가지고, 어떤 방법을 통해 구현이 되어있는지 그 근원에 대한 탐구를 할 생각이다. 따라서 iterator, promise, generator, async-wait, 그리고 Babel에 대한 사전 지식이 필요한 사람들은 아래 링크에 있는 글들을 먼저 읽어보길 바란다.&lt;/p&gt;
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Async-await는 어떻게 구현하는가]]></title><description><![CDATA[지난 포스트였던 Javascript Iterator에서 잠깐 언급했었던 async-await에 관해 이야기해 보도록 하자. 시작하기에 앞서 이 포스트에서는 async-await에 대한 문법을 다루지 않는다. async-wait…]]></description><link>https://reactiver.dev/how-to-implement-async-await/</link><guid isPermaLink="false">https://reactiver.dev/how-to-implement-async-await/</guid><pubDate>Sun, 07 Oct 2018 14:56:07 GMT</pubDate><content:encoded>&lt;p&gt;지난 포스트였던 Javascript Iterator에서 잠깐 언급했었던 async-await에 관해 이야기해 보도록 하자. 시작하기에 앞서 이 포스트에서는 async-await에 대한 문법을 다루지 않는다. async-wait가 어떤 배경을 가지고, 어떤 방법을 통해 구현이 되어있는지 그 근원에 대한 탐구를 할 생각이다. 따라서 iterator, promise, generator, async-wait, 그리고 Babel에 대한 사전 지식이 필요한 사람들은 아래 링크에 있는 글들을 먼저 읽어보길 바란다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://medium.com/@la.place/javascript-iterator-b16ca3c51af2&quot;&gt;Javascript Iterator&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://meetup.toast.com/posts/73&quot;&gt;ES6의 제너레이터를 사용한 비동기 프로그래밍&lt;/a&gt;&lt;/li&gt;
@@ -1969,7 +1969,7 @@ color: #D4D4D4;
 .dark-default-dark .mtki { font-style: italic; }
 .dark-default-dark .mtkb { font-weight: bold; }
 .dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[SOLID 원칙]]></title><description><![CDATA[프로그래밍 설계를 하다보면 객체지향 5대원칙 또는 SOLID…]]></description><link>https://hg-pyun.github.io/solid/</link><guid isPermaLink="false">https://hg-pyun.github.io/solid/</guid><pubDate>Mon, 14 Dec 2015 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프로그래밍 설계를 하다보면 객체지향 5대원칙 또는 SOLID 원칙이란 단어를 들어본 적이 있을 것이다. 당시에 구글링을 하여 찾아보았지만 프로그래밍 내공이 부족하여 잘 이해가 되지 않았다. 그때보다 조금(?) 나아진 현재 다시 공부하면서 나름대로 이해한 내용을 여기에 정리해 보고자 한다.&lt;/p&gt;
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[SOLID 원칙]]></title><description><![CDATA[프로그래밍 설계를 하다보면 객체지향 5대원칙 또는 SOLID…]]></description><link>https://reactiver.dev/solid/</link><guid isPermaLink="false">https://reactiver.dev/solid/</guid><pubDate>Mon, 14 Dec 2015 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프로그래밍 설계를 하다보면 객체지향 5대원칙 또는 SOLID 원칙이란 단어를 들어본 적이 있을 것이다. 당시에 구글링을 하여 찾아보았지만 프로그래밍 내공이 부족하여 잘 이해가 되지 않았다. 그때보다 조금(?) 나아진 현재 다시 공부하면서 나름대로 이해한 내용을 여기에 정리해 보고자 한다.&lt;/p&gt;
 &lt;h2&gt;객체지향 5대 원칙이란,&lt;/h2&gt;
 &lt;p&gt;SRP(단일 책임 원칙), OCP(개방-폐쇄 원칙), LSP(리스코프 치환 원칙), DIP(의존 역전 원칙), ISP(인터페이스 분리 원칙)을 말하며, 앞자를 따서 SOILD 원칙이라고 부른다. 프로그래머가 시간이 지나도 유지 보수와 확장이 쉬운 소프트웨어를 만드는데 이 원칙들을 적용할 수 있다. &lt;/p&gt;
 &lt;h4&gt;1. Single Responsiblity Principle (단일 책임 원칙)&lt;/h4&gt;
