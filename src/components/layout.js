@@ -65,7 +65,11 @@ class Layout extends React.Component {
       >
         <header>{header}</header>
         <main>{children}</main>
-        <footer>
+        <footer
+          style={{
+            textAlign: 'right',
+          }}
+        >
           <Icon
             icon={githubFill}
             width={40}
