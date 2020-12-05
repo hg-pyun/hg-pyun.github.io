@@ -5,6 +5,7 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm, scale } from '../utils/typography';
+import Utterances from '../components/utterances';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -75,6 +76,7 @@ class BlogPostTemplate extends React.Component {
             </li>
           </ul>
         </nav>
+        <Utterances repo={'hg-pyun/hg-pyun.github.io'} />
       </Layout>
     );
   }
