@@ -2,7 +2,6 @@
 title: React Fast Refresh
 date: 2021-01-10T00:00:00.000Z
 description: React-Hot-Loader의 대안, React Fast Refresh에 대해 알아보자.
-ogImage: './title.png'
 ---
 ![react](./title.png)
 
