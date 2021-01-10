@@ -37,8 +37,8 @@ $ npm install -D type-fest
 Webpack.config.js는 다음과 같이 구성한다.
 
 ```ts
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -78,10 +78,11 @@ $ npm install -D react-refresh-typescript
 ```
 
 ```ts
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ReactRefreshTypeScript = require('react-refresh-typescript').default;
 const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
   module: {
