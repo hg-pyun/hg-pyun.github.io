@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://reactiver.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Jan 2021 07:23:17 GMT</lastBuildDate><item><title><![CDATA[React Fast Refresh]]></title><description><![CDATA[최근에 React 프로젝트르 세팅하다가 React-Hot-Loader 문서를 보니, React Fast Refresh라는 새로운 도구가 나온 것을 발견했다. 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://reactiver.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Jan 2021 07:26:12 GMT</lastBuildDate><item><title><![CDATA[React Fast Refresh]]></title><description><![CDATA[최근에 React 프로젝트르 세팅하다가 React-Hot-Loader 문서를 보니, React Fast Refresh라는 새로운 도구가 나온 것을 발견했다. 
 React-Hot-Loader를 만든 페이스북 개발자 Dan Abramov…]]></description><link>https://reactiver.dev/react-fast-refresh/</link><guid isPermaLink="false">https://reactiver.dev/react-fast-refresh/</guid><pubDate>Sun, 10 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
@@ -30,7 +30,7 @@ React-Hot-Loader를 만든 페이스북 개발자 Dan Abramov…]]></description
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;최근에 React 프로젝트르 세팅하다가 React-Hot-Loader 문서를 보니, React Fast Refresh라는 새로운 도구가 나온 것을 발견했다.
-React-Hot-Loader를 만든 페이스북 개발자 Dan Abramov는 기존 핫 로더에 한계가 있다고 평가하면서, 앞으로는 React Fast Refresh로 대체될 것이라 생각한다고 의견을 밝혔다. 기존의 핫 로더는, 대규모 앱에서 코드변경, exprot/import 문제, Typescript관련 문제 등 앱이 매우 느리게 동작하는 것이 문제였다. 그 대안으로 나온게 Fast Refresh이며, 2019년 React Native 0.61에 처음 도입 되었다.&lt;/p&gt;
+React-Hot-Loader를 만든 페이스북 개발자 Dan Abramov는 기존 핫 로더에 한계가 있다고 평가하면서, 앞으로는 React Fast Refresh로 대체될 것이라 생각한다고 의견을 밝혔다. 기존의 핫 로더는, 대규모 앱에서 코드변경, export/import 문제, Typescript관련 문제 등 앱이 매우 느리게 동작하는 것이 문제였다. 그 대안으로 나온게 Fast Refresh이며, 2019년 React Native 0.61에 처음 도입 되었다.&lt;/p&gt;
 &lt;p&gt;그렇다면 React Fast Refresh가 하는 일은 무엇인가?&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;앱 전체를 다시 다운로드 하지 않고, React 구성 요소만 다시 렌더링 한다.&lt;/li&gt;
