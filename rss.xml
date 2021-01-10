@@ -1,4 +1,193 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://reactiver.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Dec 2020 12:00:26 GMT</lastBuildDate><item><title><![CDATA[Union-Find Algorithm]]></title><description><![CDATA[…]]></description><link>https://reactiver.dev/union-find-algorithm/</link><guid isPermaLink="false">https://reactiver.dev/union-find-algorithm/</guid><pubDate>Sat, 05 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;올해는 코로나로 인해 집콕을 장기간 하게 되면서, 알고리즘 문제를 푸는 건전한(?) 취미를 가지게 되었다. 그런데 알고리즘 문제를 풀고나서 정리를 하지 않다보니, 뭔가
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://reactiver.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Jan 2021 07:04:43 GMT</lastBuildDate><item><title><![CDATA[React Fast Refresh]]></title><description><![CDATA[최근에 React 프로젝트르 세팅하다가 React-Hot-Loader 문서를 보니, React Fast Refresh라는 새로운 도구가 나온 것을 발견했다. 
+React-Hot-Loader를 만든 페이스북 개발자 Dan Abramov…]]></description><link>https://reactiver.dev/react-fast-refresh/</link><guid isPermaLink="false">https://reactiver.dev/react-fast-refresh/</guid><pubDate>Sun, 10 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cba0b89d2bf2d96a1ed26edb5849f804/f0628/title.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAAA4klEQVQoz2NQwgWUlREkDsCAXVhBXkFGSlFeXkFaWklBgQTNigoKanqGem6+KuoaQFJNz0ARh34GTNcqyEjrufkYB0e7tM0wCY3TdfJQkJbC6n4GNJ0ga/WNrNKLHev6bQvqnOr6LdOKYJYrE9IsJ2sUFGUSkejUNNmpvt+prs80KsUoIEJRXg7TcgxnKyoqq6lbphTYl7XYl7Xal7dZJOUqq6oBxYn0s4yuoxvQfvuKNuOQWB1bJ2AoEOFnmOUqmlraNo6KcnJAEshWxGYtnnhWANkGpGWkFUmKZ5j7VQimMAD80Gpm/3t2/QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;react&quot;
+        title=&quot;react&quot;
+        src=&quot;/static/cba0b89d2bf2d96a1ed26edb5849f804/e44fa/title.png&quot;
+        srcset=&quot;/static/cba0b89d2bf2d96a1ed26edb5849f804/03428/title.png 158w,
+/static/cba0b89d2bf2d96a1ed26edb5849f804/9cdd0/title.png 315w,
+/static/cba0b89d2bf2d96a1ed26edb5849f804/e44fa/title.png 630w,
+/static/cba0b89d2bf2d96a1ed26edb5849f804/74b92/title.png 945w,
+/static/cba0b89d2bf2d96a1ed26edb5849f804/f0628/title.png 1200w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;최근에 React 프로젝트르 세팅하다가 React-Hot-Loader 문서를 보니, React Fast Refresh라는 새로운 도구가 나온 것을 발견했다.
+React-Hot-Loader를 만든 페이스북 개발자 Dan Abramov는 기존 핫 로더에 한계가 있다고 평가하면서, 앞으로는 React Fast Refresh로 대체될 것이라 생각한다고 의견을 밝혔다. 기존의 핫 로더는, 대규모 앱에서 코드변경, exprot/import 문제, Typescript관련 문제 등 앱이 매우 느리게 동작하는 것이 문제였다. 그 대안으로 나온게 Fast Refresh이며, 2019년 React Native 0.61에 처음 도입 되었다.&lt;/p&gt;
+&lt;p&gt;그렇다면 React Fast Refresh가 하는 일은 무엇인가?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;앱 전체를 다시 다운로드 하지 않고, React 구성 요소만 다시 렌더링 한다.&lt;/li&gt;
+&lt;li&gt;구문 오류 또는 런타임 오류가 발생했을 경우에, 자동으로 앱을 다시 실행시킨다.&lt;/li&gt;
+&lt;li&gt;구문 오류가 있는 모듈은 실행시키지 않는다. Fast Refresh가 동작하는 도중에 구문 오류가 발생할 경우, 오류가 발생한 파일을 수정하면 앱을 자동으로 다시 로드한다.&lt;/li&gt;
+&lt;li&gt;Hooks를 지원한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;그렇다면 React Fast Refresh를 적용하려면 어떻게 하면 되는 것일까?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create React App: `FAST_REFRESH=true` &lt;a href=&quot;https://github.com/facebook/create-react-app/blob/master/docusaurus/docs/advanced-configuration.md&quot;&gt;옵션&lt;/a&gt;을 사용한다. development에서는 true값을 디폴트로 사용하고 있다.&lt;/li&gt;
+&lt;li&gt;Parcel 2: &lt;a href=&quot;https://github.com/parcel-bundler/parcel/pull/3654&quot;&gt;React Refresh#3654&lt;/a&gt;에 추가되었다.&lt;/li&gt;
+&lt;li&gt;Webpack: 아직 실험적인 버전이지만 &lt;a href=&quot;https://github.com/pmmmwh/react-refresh-webpack-plugin/&quot;&gt;Webpack-Plugin&lt;/a&gt;이 존재한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;나는 현재 최신 스펙인 Webpack5 + Typescript를 기반으로 설정을 진행해 보았다. 설치는 아래 명령어를 사용한다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$  npm install -D @pmmmwh/react-refresh-webpack-plugin react-refresh&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;타입 스크립트를 사용한다면 `type-fest`를 설치한다 (스펠링 주의!)&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ npm install -D type-fest&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Webpack.config.js는 다음과 같이 구성한다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;ReactRefreshWebpackPlugin&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;@pmmmwh/react-refresh-webpack-plugin&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;webpack&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;webpack&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; !== &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;production&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk10&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;mode:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;development&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;production&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;module:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rules:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;test:&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt; /&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\.&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt;jt&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt;sx&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;exclude:&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt; /node_modules/&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;use:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;loader:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;babel-loader&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;options:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;              &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;                &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;react-refresh/babel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;              ].&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;Boolean&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;webpack&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HotModuleReplacementPlugin&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;ReactRefreshWebpackPlugin&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ].&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;Boolean&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;};&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;하지만 자세히 보면 위 코드는, typescript의 ts-loader가 아닌 babel-loader을 사용하고 있다. 따라서 위 코드를 사용하려면 번거롭게 Babel-Typesscript를 구성해야 한다.
+Hot Module Replacement를 이용하기 위헤, Babel까지 추가 설치하는건 약간 부담이 되었다. 다른 방법은 없을까 찾아보는 도중, Issue에 타입스크립트 적용에 대한 토론이 남아 있는 것을 발견하였.
+&lt;a href=&quot;https://github.com/pmmmwh/react-refresh-webpack-plugin/pull/248&quot;&gt;Add react-refresh-typescript #248&lt;/a&gt;을 보고 webpack.config.js를 다음과 같이 구성 했다.&lt;/p&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ npm install -D react-refresh-typescript&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;dark-default-dark vscode-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;code class=&quot;vscode-highlight-code&quot;&gt;&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;ReactRefreshWebpackPlugin&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;@pmmmwh/react-refresh-webpack-plugin&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;webpack&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;webpack&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;ReactRefreshTypeScript&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;react-refresh-typescript&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; !== &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;production&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk10&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;mode:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;development&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; : &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;production&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;module:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rules:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;test:&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt; /&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\.&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt;jt&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt;sx&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;exclude:&lt;/span&gt;&lt;span class=&quot;mtk5&quot;&gt; /node_modules/&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;use:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;loader:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;ts-loader&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;options:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;              &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;getCustomTransformers&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; () &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ({&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;                &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;before:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; ? [&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;ReactRefreshTypeScript&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;()] : [],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;              }),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;            },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    ],&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  },&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;webpack&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HotModuleReplacementPlugin&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;isDevelopment&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &amp;amp;&amp;amp; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;ReactRefreshWebpackPlugin&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ].&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;Boolean&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;),&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;vscode-highlight-line&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;};&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;이제 React 앱을 동작한 후, 소스코드를 수정하면 HMR이 잘 동작하는 것을 볼 수 있다.&lt;/p&gt;
+&lt;h2&gt;마치며&lt;/h2&gt;
+&lt;p&gt;기존 React-Hot-Loader의 경우, 컴포넌트의 소스코드를 수정해야 하는 경우도 있었는데, webpack 설정만으로 HMR을 적용할 수 있어서 이전보다 굉장히 코드가 깔끔해졌다.
+아직 실험적인 버전이지만, 도입해볼만 가치가 있다고 생각한다.&lt;/p&gt;
+&lt;style class=&quot;vscode-highlight-styles&quot;&gt;
+  :root {
+  --vscode-highlight-padding-v: 1rem;
+  --vscode-highlight-padding-h: 1.5rem;
+  --vscode-highlight-padding-top: var(--vscode-highlight-padding-v);
+  --vscode-highlight-padding-right: var(--vscode-highlight-padding-h);
+  --vscode-highlight-padding-bottom: var(--vscode-highlight-padding-v);
+  --vscode-highlight-padding-left: var(--vscode-highlight-padding-h);
+  --vscode-highlight-border-radius: 8px;
+
+  --vscode-highlight-line-highlighted-background-color: transparent;
+  --vscode-highlight-line-highlighted-border-width: 4px;
+  --vscode-highlight-line-highlighted-border-color: transparent;
+}
+
+.vscode-highlight {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 1rem;
+  padding-top: var(--vscode-highlight-padding-top);
+  padding-bottom: 1rem;
+  padding-bottom: var(--vscode-highlight-padding-bottom);
+  border-radius: 8px;
+  border-radius: var(--vscode-highlight-border-radius);
+  font-feature-settings: normal;
+}
+
+.vscode-highlight-code {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.vscode-highlight-line {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-left: var(--vscode-highlight-padding-left);
+  padding-right: 1.5rem;
+  padding-right: var(--vscode-highlight-padding-right);
+}
+
+.vscode-highlight-line-highlighted {
+  background-color: var(--vscode-highlight-line-highlighted-background-color);
+  box-shadow: inset var(--vscode-highlight-line-highlighted-border-width) 0 0 0 var(--vscode-highlight-line-highlighted-border-color);
+}
+
+  .dark-default-dark {
+background-color: #1E1E1E;
+color: #D4D4D4;
+}
+
+.dark-default-dark .mtk1 { color: #D4D4D4; }
+.dark-default-dark .mtk2 { color: #1E1E1E; }
+.dark-default-dark .mtk3 { color: #6A9955; }
+.dark-default-dark .mtk4 { color: #569CD6; }
+.dark-default-dark .mtk5 { color: #D16969; }
+.dark-default-dark .mtk6 { color: #D7BA7D; }
+.dark-default-dark .mtk7 { color: #B5CEA8; }
+.dark-default-dark .mtk8 { color: #CE9178; }
+.dark-default-dark .mtk9 { color: #646695; }
+.dark-default-dark .mtk10 { color: #4EC9B0; }
+.dark-default-dark .mtk11 { color: #DCDCAA; }
+.dark-default-dark .mtk12 { color: #9CDCFE; }
+.dark-default-dark .mtk13 { color: #000080; }
+.dark-default-dark .mtk14 { color: #F44747; }
+.dark-default-dark .mtk15 { color: #C586C0; }
+.dark-default-dark .mtk16 { color: #6796E6; }
+.dark-default-dark .mtk17 { color: #808080; }
+.dark-default-dark .mtki { font-style: italic; }
+.dark-default-dark .mtkb { font-weight: bold; }
+.dark-default-dark .mtku { text-decoration: underline; text-underline-position: under; }
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Union-Find Algorithm]]></title><description><![CDATA[…]]></description><link>https://reactiver.dev/union-find-algorithm/</link><guid isPermaLink="false">https://reactiver.dev/union-find-algorithm/</guid><pubDate>Sat, 05 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;올해는 코로나로 인해 집콕을 장기간 하게 되면서, 알고리즘 문제를 푸는 건전한(?) 취미를 가지게 되었다. 그런데 알고리즘 문제를 풀고나서 정리를 하지 않다보니, 뭔가
 남는게 없는 느낌이 강하게 들었다. 학생때도 공부하고, 회사다니면서 다시 보았던, 하지만 문제 풀 때마다 새롭게 느껴졌던…몇가지 알아두면 유용한 알고리즘을 정리해 보고자
 한다. 그 첫번째로 소개할 알고리즘은 Union-Find 이다. &lt;/p&gt;
 &lt;p&gt;그전에 먼저 이해를 돕기위해 Disjoint Set에 대해 알아보도록 하자. Disjoint Set이란 서로 중복되지 않는 부분 집합들로
