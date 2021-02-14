@@ -70,7 +70,7 @@ module.exports = {
 ```
 
 하지만 자세히 보면 위 코드는, typescript의 ts-loader가 아닌 babel-loader을 사용하고 있다. 따라서 위 코드를 사용하려면 번거롭게 Babel-Typesscript를 구성해야 한다. 
-Hot Module Replacement를 이용하기 위헤, Babel까지 추가 설치하는건 약간 부담이 되었다. 다른 방법은 없을까 찾아보는 도중, Issue에 타입스크립트 적용에 대한 토론이 남아 있는 것을 발견하였. 
+Hot Module Replacement를 이용하기 위헤, Babel까지 추가 설치하는건 약간 부담이 되었다. 다른 방법은 없을까 찾아보는 도중, Issue에 타입스크립트 적용에 대한 토론이 남아 있는 것을 발견했다. 
 [Add react-refresh-typescript #248](https://github.com/pmmmwh/react-refresh-webpack-plugin/pull/248)을 보고 webpack.config.js를 다음과 같이 구성 했다.
 
 ```sh

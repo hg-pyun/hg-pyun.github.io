@@ -5,7 +5,6 @@ description: 이전에 Javascaript의 Iterator에 대해서 몇가지 다뤄보�
 ---
 이전에 Javascaript의 **Iterator**에 대해서 몇가지 다뤄보았었는데, 도입된지 얼마 안된 스펙이다보니 자유 자재로 다루기가 아직 버겁다는 생각이 많이 들었다. 또한 최근 이터레이터와 제네레이터를 이용해 멋지게 구현한 코드들을 접하고 나서, 연습을 많이 해야겠다는 생각이들어 여기에 정리해 보고자 한다. 아래 함께보면 좋은 글들을 같이 링크하므로 관심있는 사람은 먼저 읽어보는 것도 좋겠다.
 
-- [Javascript Iterator](http://dev-momo.tistory.com/entry/Javascript-Iterator)
 - [ES6의 심볼, 이터레이터, 제네레이터](http://hacks.mozilla.or.kr/2015/09/es6-in-depth-symbols/)
 - [ES6의 제너레이터를 사용한 비동기 프로그래밍](https://meetup.toast.com/posts/73)
 - [Async-await는 어떻게 구현하는가?](https://hg-pyun.github.io/how-to-implement-async-await/)
