@@ -24,8 +24,8 @@ React라는 이름은 누가 붙였을까? 왜 React라고 이름을 붙였을�
 
 ![react-issue-14606](./image01.png)
 
-재미있는 답변이 많았는데, "chemical reactions,즉 화학 반응에 영감을 받아 지어졌다, 그래서 로고가 원자 모형이다." 라는 답변도 있었고, reactive 프로그래밍에서
-영감을 받았다는 답변도 있었다. 고맙게도 내가 좋아하는 개발자인 Dan Abramov도 의견을 남겨 주었다. 스레드 중간에 이름의 유래에 대한
+여러 답변이 많았는데, "chemical reactions,즉 화학 반응에 영감을 받아 지어졌다, 그래서 로고가 원자 모형이다." 라는 답변이 재미있었다.
+고맙게도 내가 좋아하는 개발자인 Dan Abramov도 의견을 남겨 주었다. 스레드 중간에 이름의 유래에 대한
 단서를 제공하는 [포스트 링크](https://reactjs.org/blog/2016/09/28/our-first-50000-stars.html#fbolt-is-born)를 남겨주어서, 해당 포스트를 자세히 읽어보았다.
 
 ![FBolt is Born](./image02.png)
