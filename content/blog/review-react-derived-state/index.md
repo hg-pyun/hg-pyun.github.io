@@ -3,6 +3,7 @@ title: React Derived State 다시 보기
 date: 2021-10-16T00:00:00.000Z
 description: Derived State가 뭔지 이해하고, 올바른 컴포넌트 디자인 패턴에 대해 알아보자. 
 ---
+![title](./title.png)
 
 얼마전에 부모 컴포넌트로부터 받은 `props`를 자식 컴포넌트의 `state`에 저장해서 쓰는 형태로 컴포넌트 디자인을 한 적이 있었다.
 코드 리뷰에서 동료 개발자분이 `Derived State`에 대한 부분을 지적해 주셨는데, 사실 몇달 전에도 같은 이유로 고민한 적이 있었다.
