@@ -30,8 +30,8 @@
   </a>
     </span></p>
 <p>얼마전에 부모 컴포넌트로부터 받은 <code>props</code>를 자식 컴포넌트의 <code>state</code>에 저장해서 쓰는 형태로 컴포넌트 디자인을 한 적이 있었다.
-코드 리뷰에서 동료 개발자분이 <code>Derived State</code>에 대한 부분을 지적해 주셨는데, 사실 몇달 전에도 같은 이유로 고민한 적이 있었다.
-그런데 또 이렇게 짠 코드를 보며, 혹시 자주 실수하기 쉬운 부분이지 않을까 하는 생각이 들어 이번에는 기록으로 남겨본다.</p>
+그런데 코드 리뷰에서 동료 개발자분이 <code>Derived State</code>에 대한 부분을 지적해 주셨는데, 사실 몇달 전에도 같은 이유로 고민한 적이 있었다.
+또 이렇게 짠 코드를 보며, 혹시 자주 실수하기 쉬운 부분이지 않을까 하는 생각이 들어 이번에는 기록으로 남겨본다.</p>
 <h2>Derived State ?</h2>
 <p>먼저 <code>Derived State</code>란 용어가 의미하는 것이 무엇인지 알아야 한다.
 일단 공식 문서의 튜토리얼에서 명확한 개념 설명을 찾기가 힘들었다. 따라서 여기서는 다른 방법을 통해 용어에 대해 탐구해 보도록 하자.
@@ -111,7 +111,7 @@ Dan Abramov가 작성한 <a href="https://overreacted.io/writing-resilient-compo
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk17">/&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    );</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
-<p><code>&#x3C;NumberInput /></code>은 입력한 데이터를 <code>Number</code> 형태로 바꿔서 저장하는 컴포넌트 이다. 이 컴포넌트는 잘 동작하는 것처럼 보이지만 두가지 문제점이 존재한다.</p>
+<p><code>&#x3C;NumberInput /></code>은 입력한 데이터를 <code>Number</code> 형태로 바꿔서 외부 상태에 전달하는 컴포넌트이다. 이 컴포넌트는 잘 동작하는 것처럼 보이지만 두가지 문제점이 존재한다.</p>
 <ol>
 <li>source of truth가 존재하지 않는다. App에도 value에 대한 상태가 존재하고, <code>&#x3C;NumberInput /></code>의 내부에도 value에 대한 상태가 존재한다. 두개의 상태를 가지고 있기 때문에 의도하지 않은 버그를 발생시킬 가능성도 많고 코드도 복잡해졌다.</li>
 <li>
@@ -173,6 +173,8 @@ Dan Abramov가 작성한 <a href="https://overreacted.io/writing-resilient-compo
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk17">&lt;</span><span class="mtk4">input</span><span class="mtk1"> </span><span class="mtk12">value</span><span class="mtk1">=</span><span class="mtk4">{</span><span class="mtk12">inputValue</span><span class="mtk4">}</span><span class="mtk1"> </span><span class="mtk12">onChange</span><span class="mtk1">=</span><span class="mtk4">{</span><span class="mtk1">(</span><span class="mtk12">e</span><span class="mtk1">) </span><span class="mtk4">=&gt;</span><span class="mtk1"> </span><span class="mtk11">setInputValue</span><span class="mtk1">(</span><span class="mtk12">e</span><span class="mtk1">.</span><span class="mtk12">target</span><span class="mtk1">.</span><span class="mtk12">value</span><span class="mtk1">)</span><span class="mtk4">}</span><span class="mtk1"> </span><span class="mtk17">/&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  );</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<p><code>&#x3C;NumberInput /></code>은 이러한 패턴을 보여주기 위해, 최소한의 기능만을 이용해 구현해 본 예제이다. (여기서는 다시 랜더링 되기 때문에, 숫자를 입력할 때마다 성능 이슈가 발생한다.)
+실제 우리가 개발해서 사용하는 컴포넌트들은 이보다 더 복잡하고 다양한 상태를 다룰 것이다. 때문에 <code>Derived State</code>에 대해 한번 학습하여 삽질을 조금이나마 줄였으면 하는 바램이다. </p>
 <h2>마치며</h2>
 <p>글로 정리해보니 많이 명확해졌다. 사실 위 내용은 리액트 공식문서나 유명 개발자의 블로그에서 종종 찾아볼 수 있는 내용이다.
 하지만 깊게 다뤄지지 않는 부분이기 때문에 종종 실수할 수 있는 개념이라 생각한다.
