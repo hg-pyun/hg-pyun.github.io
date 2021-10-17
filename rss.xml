@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://reactiver.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Oct 2021 16:40:07 GMT</lastBuildDate><item><title><![CDATA[React Derived State 다시 보기]]></title><description><![CDATA[얼마전에 부모 컴포넌트로부터 받은 props를 자식 컴포넌트의 state에 저장해서 쓰는 형태로 컴포넌트 디자인을 한 적이 있었다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Log]]></title><description><![CDATA[The best moment has not coming yet.]]></description><link>https://reactiver.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 Oct 2021 01:07:58 GMT</lastBuildDate><item><title><![CDATA[React Derived State 다시 보기]]></title><description><![CDATA[얼마전에 부모 컴포넌트로부터 받은 props를 자식 컴포넌트의 state에 저장해서 쓰는 형태로 컴포넌트 디자인을 한 적이 있었다.
 그런데 코드 리뷰에서 동료 개발자분이 Derived State…]]></description><link>https://reactiver.dev/review-react-derived-state/</link><guid isPermaLink="false">https://reactiver.dev/review-react-derived-state/</guid><pubDate>Sat, 16 Oct 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
@@ -143,7 +143,7 @@ Dan Abramov가 작성한 &lt;a href=&quot;https://overreacted.io/writing-resilie
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    );&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h4&gt;Fully Uncontrolled Component + Key&lt;/h4&gt;
-&lt;p&gt;두번째 방법은 &lt;code&gt;key&lt;/code&gt;를 이용하는 것이다. React는 &lt;code&gt;key props&lt;/code&gt;룰 이용하여 컴포넌트를 다시 그릴지 재활용 할지(Reconciliation)를 결정한다. 따라서 부모 컴포넌트의 상태가 변할 경우 &lt;code&gt;key&lt;/code&gt;값을 바꿔서 컴포넌트가 다시 그려지도록 구현한다. (&lt;a href=&quot;https://codesandbox.io/s/review-react-derived-state-4-zl1kc?file=/src/App.js&quot;&gt;예제 코드&lt;/a&gt;)
+&lt;p&gt;두번째 방법은 &lt;code&gt;key&lt;/code&gt;를 이용하는 것이다. React는 &lt;code&gt;key props&lt;/code&gt;를 이용하여 컴포넌트를 다시 그릴지 재활용 할지(Reconciliation)를 결정한다. 따라서 부모 컴포넌트의 상태가 변할 경우 &lt;code&gt;key&lt;/code&gt;값을 바꿔서 컴포넌트가 다시 그려지도록 구현한다. (&lt;a href=&quot;https://codesandbox.io/s/review-react-derived-state-4-zl1kc?file=/src/App.js&quot;&gt;예제 코드&lt;/a&gt;)
 물론 다시 랜더링 되는 것 때문에 성능에 대해 걱정될 것이다. 하지만 &lt;code&gt;Derived State&lt;/code&gt;를 사용하는 경우, 대게 복잡하고 무거운 로직을 내부에 들고있는 경우가 많기 때문에, 대게의 경우 성능 차이는 미미하다고 볼 수 있다. 공식 문서에서도 다음과 같은 문구를 찾아볼 수 있다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;While this may sound slow, the performance difference is usually insignificant. Using a key can even be faster if the components have heavy logic that runs on updates since diffing gets bypassed for that subtree.&lt;/p&gt;
@@ -184,7 +184,7 @@ Dan Abramov가 작성한 &lt;a href=&quot;https://overreacted.io/writing-resilie
 &lt;h2&gt;Reference&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html&quot;&gt;You Probably Don’t Need Derived State&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://overreacted.io/writing-resilient-components&quot;&gt;Writing Resilient Components&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://overreacted.io/writing-resilient-components&quot;&gt;Writing Resilient Components&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
