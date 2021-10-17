@@ -141,7 +141,7 @@ function NumberInput({ value, onChange }) {
 ```
 
 #### Fully Uncontrolled Component + Key 
-두번째 방법은 `key`를 이용하는 것이다. React는 `key props`룰 이용하여 컴포넌트를 다시 그릴지 재활용 할지(Reconciliation)를 결정한다. 따라서 부모 컴포넌트의 상태가 변할 경우 `key`값을 바꿔서 컴포넌트가 다시 그려지도록 구현한다. ([예제 코드](https://codesandbox.io/s/review-react-derived-state-4-zl1kc?file=/src/App.js))
+두번째 방법은 `key`를 이용하는 것이다. React는 `key props`를 이용하여 컴포넌트를 다시 그릴지 재활용 할지(Reconciliation)를 결정한다. 따라서 부모 컴포넌트의 상태가 변할 경우 `key`값을 바꿔서 컴포넌트가 다시 그려지도록 구현한다. ([예제 코드](https://codesandbox.io/s/review-react-derived-state-4-zl1kc?file=/src/App.js))
 물론 다시 랜더링 되는 것 때문에 성능에 대해 걱정될 것이다. 하지만 `Derived State`를 사용하는 경우, 대게 복잡하고 무거운 로직을 내부에 들고있는 경우가 많기 때문에, 대게의 경우 성능 차이는 미미하다고 볼 수 있다. 공식 문서에서도 다음과 같은 문구를 찾아볼 수 있다.
 
 > While this may sound slow, the performance difference is usually insignificant. Using a key can even be faster if the components have heavy logic that runs on updates since diffing gets bypassed for that subtree.
@@ -188,4 +188,4 @@ function NumberInput({ defaultValue, onChange }) {
 
 ## Reference
 - [You Probably Don't Need Derived State](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
-- [Writing Resilient Components](https://overreacted.io/writing-resilient-components))
+- [Writing Resilient Components](https://overreacted.io/writing-resilient-components)
